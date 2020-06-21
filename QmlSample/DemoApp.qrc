@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/RootWindow.qml</file>
+        <file>qml/TopToolButton.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>qml/LauncherDrawer.qml</file>
+    </qresource>
+</RCC>
