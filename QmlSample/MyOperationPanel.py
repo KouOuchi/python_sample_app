@@ -1,5 +1,5 @@
-from PySide2.QtQuick import QQuickItem
-from PySide2 import QtCore
+from PyQt5.QtQuick import QQuickItem
+from PyQt5 import QtCore
 import sys
 from ThreadWorker import ThreadWorker
 
@@ -16,7 +16,7 @@ class MyOperationPanel(QQuickItem):
     def __init__(self, parent=None):
         super().__init__(parent)       
 
-    @QtCore.Slot(result=int)
+    @QtCore.pyqtSlot(result=int)
     def is_running(self):
         ret = 0
 
@@ -28,7 +28,7 @@ class MyOperationPanel(QQuickItem):
 
         return ret
 
-    @QtCore.Slot(result=int)
+    @QtCore.pyqtSlot(result=int)
     def get_result(self):
         """
         call is_runnning() in advance
@@ -39,7 +39,7 @@ class MyOperationPanel(QQuickItem):
             return len(self.result)
         return 0
 
-    @QtCore.Slot(result=bool)
+    @QtCore.pyqtSlot(result=bool)
     def boost(self):
         try:
             self.thread = QtCore.QThread(None)
@@ -58,7 +58,7 @@ class MyOperationPanel(QQuickItem):
 
         return True
 
-    @QtCore.Slot(result=bool)
+    @QtCore.pyqtSlot(result=bool)
     def cancel_boost(self):
         try:
             self.worker.cancel(True)
@@ -68,19 +68,19 @@ class MyOperationPanel(QQuickItem):
             print(e)
             return false
 
-    @QtCore.Slot(float)
+    @QtCore.pyqtSlot(float)
     def accept_progress(self, p):
         self.progress = p
 
-    @QtCore.Slot(bool)
+    @QtCore.pyqtSlot(bool)
     def accept_is_running(self, p):
         self.running = p
 
-    @QtCore.Slot(list)
+    @QtCore.pyqtSlot(list)
     def accept_result(self, p):
         self.result = p
 
-    @QtCore.Slot(result=str)
+    @QtCore.pyqtSlot(result=str)
     def progress_text(self):
         #print(self.progress)
         return str(round(self.progress*100.0)) + '%'

@@ -1,3 +1,3 @@
-pyside2-rcc -o DemoAppQrc.py DemoApp.qrc
+pyrcc5 -o DemoAppQrc.py DemoApp.qrc
 python DemoApp.py
 

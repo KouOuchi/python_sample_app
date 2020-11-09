@@ -1,11 +1,11 @@
-from PySide2 import QtCore
+from PyQt5 import QtCore
 import time
 
 class ThreadWorker(QtCore.QThread):
 
-    notify_progress = QtCore.Signal(float)
-    notify_is_running = QtCore.Signal(bool)
-    notify_result = QtCore.Signal(list)
+    notify_progress = QtCore.pyqtSignal(float)
+    notify_is_running = QtCore.pyqtSignal(bool)
+    notify_result = QtCore.pyqtSignal(list)
 
     primes = []
     should_stop = True
